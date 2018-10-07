@@ -3,13 +3,13 @@ package wikipedia
 import java.io.File
 
 object WikipediaData {
-
+  // private to wikipeidia package
   private[wikipedia] def filePath = {
     val resource = this.getClass.getClassLoader.getResource("wikipedia/wikipedia.dat")
     if (resource == null) sys.error("Please download the dataset as explained in the assignment instructions")
     new File(resource.toURI).getPath
   }
-
+ // private to wikipedia package 
   private[wikipedia] def parse(line: String): WikipediaArticle = {
     val subs = "</title><text>"
     val i = line.indexOf(subs)
